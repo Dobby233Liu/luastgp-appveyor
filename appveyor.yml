@@ -4,6 +4,7 @@ init:
   - git clone --recursive https://github.com/9chu/fancy2d C:\projects\fancy2d
 before_build:
   - cd C:\projects\fancy2d
+  - msbuild /p:Configuration=Release;Platform="Any CPU" fancylib\fancylib.vcxproj 
   - msbuild /p:Configuration=Release;Platform="Any CPU" fancy2D\fancy2D.vcxproj
   - cd ..\LuaSTGPlus
   - cd 3rdparty\luajit
