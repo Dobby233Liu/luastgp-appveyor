@@ -1,4 +1,4 @@
-image: Visual Studio 2013 # or 2015/2017 maybe
+image: Visual Studio 2015 # or 2017 maybe
 init:
   - git clone --recursive https://github.com/9chu/LuaSTGPlus C:\projects\LuaSTGPlus
   - git clone --recursive https://github.com/9chu/fancy2d C:\projects\fancy2d
