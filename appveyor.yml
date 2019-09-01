@@ -1,0 +1,17 @@
+image: Visual Studio 2013 # or 2015/2017 maybe
+init:
+  - git clone --recursive https://github.com/9chu/LuaSTGPlus C:\projects\LuaSTGPlus
+  - git clone --recursive https://github.com/9chu/fancy2d C:\projects\fancy2d
+before_build:
+  - cd C:\projects\fancy2d
+  - msbuild /t:Rebuild /p:Configuration=Release fancy2D.sln
+  - cd ..\LuaSTGPlus
+  - cd 3rdparty\luajit
+  - mkdir _build
+  - cd _build
+  - cmake -G "Visual Studio 12" -DLUAJIT_ENABLE_LUA52COMPAT=false ..
+  - msbuild luajit.sln /t:Rebuild /p:Configuration=Release
+  - cd ..\..\..
+build_script:
+  - cd C:\projects\LuaSTGPlus
+  - msbuild LuaSTGPlus.sln /t:Rebuild /p:Configuration=Release_dev 
